@@ -122,5 +122,6 @@ root@hf-2:/#
 root@hf-2:/#
 ```
 
-## Next steps
-* We will containerize this model and run it on a Kubernetes cluster.
+## References
+* [Deploying machine learning models on Kubernetes - YouTube](https://www.youtube.com/watch?v=DQRNt8Diyw4&t=7s)
+* [Deploying machine learning models on Kubernetes - GitHub](https://github.com/jankrepl/mildlyoverfitted/tree/master/mini_tutorials/deploying_on_kubernetes)

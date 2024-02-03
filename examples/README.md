@@ -152,5 +152,5 @@ root@hf-2:/transformers-course#
 root@hf-2:/transformers-course#
 ```
 
-## Next steps
-* In the next exercise we will see how to containerize these language models as a Docker image and run it on K8s.
+## References
+* [Transformers and Pipeline](https://huggingface.co/learn/nlp-course/chapter1/3?fw=pt)

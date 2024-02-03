@@ -50,5 +50,8 @@ This repository serves as a guide to help you get started with Hugging Face, inc
 
 * Pretrained models are downloaded and locally cached at: ~/.cache/huggingface/hub/
 
-
+## References
+* [https://huggingface.co/]( https://huggingface.co/)
+* [Transformers](https://huggingface.co/docs/transformers/index)
+* [NLP course](https://huggingface.co/learn/nlp-course/chapter1/1)
 

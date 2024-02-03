@@ -1,5 +1,10 @@
 ## Overview
-This repository will guide you on how to download and use Language Models from Hugging Face locally on a Kubernetes cluster.
+This repository serves as a guide to help you get started with Hugging Face, including:
+
+* Downloading and utilizing Hugging Face models locally via the Python Transformers library.
+* Constructing an API for your LLM application using FastAPI.
+* Containerizing your project with Docker.
+* Deploying and running your containerized application on a Kubernetes cluster.
 
 ## Hugging Face
 * Major hub for open-source machine learning (ML) models.

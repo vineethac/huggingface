@@ -2,6 +2,7 @@
 * In this exercise we will see how to interact with CodeLlama - Instruct model from Hugging Face locally using the transformers library and Python.
 * Here I am using the 7 billion parameters model. 
 * Size of this model is around 13.5G.
+* I am using Python 3.10.12.
 
 ## Example
 ```

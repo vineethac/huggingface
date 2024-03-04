@@ -1,0 +1,5 @@
+transformers[sentencepiece]
+torch
+langchain
+langchain-community
+fastapi[all]

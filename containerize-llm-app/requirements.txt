@@ -3,3 +3,4 @@ torch
 langchain
 langchain-community
 fastapi[all]
+coloredlogs

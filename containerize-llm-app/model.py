@@ -35,5 +35,8 @@ def model_pipeline(user_query: str) -> str:
     prompt = PromptTemplate.from_template(template)
     chain = prompt | hf
     result = chain.invoke({"user_query": user_query})
+
+    # Remove the prompt template from the result
+    result = result.replace(f"<s>[INST] {user_query} [/INST]", "")
     logging.info(f"LLM response: {result}")
     return result

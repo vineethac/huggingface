@@ -9,8 +9,20 @@
 * And, we have containerized this FastAPI LLM app using the Dockerfile.
 * You can pull the image by: `docker pull vineethac/fastapi-llm-app`
 
-## Deploy on Kubernetes
+## Deploy on Kubernetes as a Pod
 * Deploy as a pod. This is just for quick testing purpose!
+* Deploying directly as a pod is not a preferred way! In the next section we will see how to deploy this as a Kubernetes deployment resource.
+
+### Observations
+* Here are some points I noted:
+    * When I first deployed the pod, it took roughly 7-8 minutes to be in running status. This depends on your internet speed as well!
+    * After that, it took another 2-3 minutes for the FastAPI to be up and running and to load the checkpoint shards of the LLM. You can see it in the pod logs.
+    * All total it may take 10-12 minutes for the app to be up, running, and ready to sever API requests.
+    * The worker nodes on which these pods are running should have enough storage space. Otherwise you may notice these pods getting stuck/ restarting/ unknownstatus.
+    * If the worker nodes run out of the storage disk space, you will see pods getting evicted with warnings `The node was low on resource: ephemeral-storage.`.
+    * To check whether your K8s nodes has disk pressure, you can follow this [blog post](https://vineethac.blogspot.com/2023/07/kubernetes-101-part11-find-kubernetes.html).
+    * In the next section we will take a look at adding readiness and liveness probes.
+    * We will also try to add a metrics end point using Prometheus python client for counting the number of API requests.
 
 ```
 ❯ KUBECONFIG=gckubeconfig k run hf-11 --image=vineethac/fastapi-llm-app:latest --image-pull-policy=Always
@@ -44,7 +56,7 @@ INFO:     127.0.0.1:55264 - "GET / HTTP/1.1" 200 OK
 INFO:     127.0.0.1:43342 - "GET /healthz HTTP/1.1" 200 OK
 ```
 
-## Sample test
+### Example test
 * For testing, I just deployed it as a pod on my Kubernetes cluster, did exec into it, and curl against the exposed APIs.
 
 ```
@@ -59,6 +71,10 @@ root@hf-11:/fastapi-llm-app# curl localhost:5000/healthz
 {"Status":"OK"}root@hf-11:/fastapi-llm-app#
 root@hf-11:/fastapi-llm-app#
 ```
+
+## Deploy on Kubernetes as a Deployment
+* This is a better way of deploying LLMs.
+* Using a deployment resource you can keep track/ rollout new versions of the app, easily rollback, quickly scale the number of replicas, etc.
 
 ## References
 

@@ -8,6 +8,7 @@ RUN apt-get install -y pip
 COPY requirements.txt .
 COPY model.py .
 COPY main.py .
+COPY liveness.py .
 RUN pip3 install -r requirements.txt
 EXPOSE 5000
 ENTRYPOINT python3 main.py
